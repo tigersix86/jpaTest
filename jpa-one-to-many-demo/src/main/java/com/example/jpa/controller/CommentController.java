@@ -1,5 +1,7 @@
 package com.example.jpa.controller;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,11 @@ public class CommentController {
         return commentRepository.findByPostId(postId, pageable);
     }
 
+    @GetMapping("/posts/{postId}/comments/{commentId}")
+    public Optional<Comment> getAllCommentsByPostAndCommentId(@PathVariable(value = "postId") Long postId, @PathVariable(value = "commentId") Long commentId,Pageable pageable) {
+        return commentRepository.findByIdAndPostId(commentId, postId);
+    }
+    
     @PostMapping("/posts/{postId}/comments")
     public Comment createComment(@PathVariable(value = "postId") Long postId, @Valid @RequestBody Comment comment) {
         return postRepository.findById(postId).map(post -> {
