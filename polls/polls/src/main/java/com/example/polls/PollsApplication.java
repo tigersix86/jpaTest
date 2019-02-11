@@ -43,14 +43,14 @@ public class PollsApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		roleRepo.save(new Role(RoleName.ROLE_ADMIN));
-		roleRepo.save(new Role(RoleName.ROLE_USER));
-		User user = new User("Magnus","magnus","m@kvartsgatan13.se","pass");
-		Set<Role> roles = new HashSet<>();
-		Optional<Role> role = roleRepo.findByName(RoleName.ROLE_ADMIN);
-		roles.add(role.get());
-		user.setRoles(roles);
-		userRepo.save(user);
+//		roleRepo.save(new Role(RoleName.ROLE_ADMIN));
+//		roleRepo.save(new Role(RoleName.ROLE_USER));
+//		User user = new User("Magnus","magnus","m@kvartsgatan13.se","pass");
+//		Set<Role> roles = new HashSet<>();
+//		Optional<Role> role = roleRepo.findByName(RoleName.ROLE_ADMIN);
+//		roles.add(role.get());
+//		user.setRoles(roles);
+//		userRepo.save(user);
 		
 	}
 }
