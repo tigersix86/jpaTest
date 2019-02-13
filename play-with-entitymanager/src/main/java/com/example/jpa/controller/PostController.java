@@ -3,6 +3,8 @@ package com.example.jpa.controller;
 import com.example.jpa.exception.ResourceNotFoundException;
 import com.example.jpa.model.Post;
 import com.example.jpa.repository.ExtendedPostRepository;
+import com.example.jpa.service.PostService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +18,8 @@ public class PostController {
 
     @Autowired
     private ExtendedPostRepository postRepository;
+    @Autowired
+    private PostService postService;
 
     @GetMapping("/posts")
     public Page<Post> getAllPosts(Pageable pageable) {
@@ -24,7 +28,8 @@ public class PostController {
 
     @PostMapping("/posts")
     public Post createPost(@Valid @RequestBody Post post) {
-        return postRepository.save(post);
+//        return postRepository.save(post);
+    	return postService.addPostWithDefaultComment(post);
     }
 
     @PutMapping("/posts/{postId}")

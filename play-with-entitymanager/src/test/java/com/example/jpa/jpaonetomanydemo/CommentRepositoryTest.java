@@ -36,9 +36,9 @@ public class CommentRepositoryTest {
 		post.setDescription("");
 		post.setTitle("");
 		postRepo.save(post);
-		repo.save(new Comment(new Long(1),"good", post));
-		repo.save(new Comment(new Long(2), "bad", post));
-		repo.save(new Comment(new Long(3), "ordinary", post));
+		repo.save(new Comment("good", post));
+		repo.save(new Comment("bad", post));
+		repo.save(new Comment("ordinary", post));
 	}
 
 	@After

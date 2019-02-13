@@ -40,8 +40,8 @@ public class Comment extends AuditModel {
     	
     }
 
-    public Comment(Long id, String text, Post post) {
-    	this.id = id;
+    public Comment(String text, Post post) {
+//    	this.id = id;
     	this.text = text;
     	this.post = post;
     }
